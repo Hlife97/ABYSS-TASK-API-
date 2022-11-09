@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\ProductRequest;
+use App\Http\Resources\Api\ProductResource;
 use App\Models\Product;
 use Illuminate\Support\Facades\Storage;
 
@@ -11,7 +12,9 @@ class ProductController extends Controller
 {
     public function index()
     {
-        # code...
+        $products = Product::query()->paginate(10);
+
+        return ProductResource::collection($products);
     }
 
     public function store(ProductRequest $request)

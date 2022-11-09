@@ -10,10 +10,4 @@ class Product extends Model
     use HasFactory;
     protected $table = "products";
     protected $guarded = ['id'];
-    // protected $fillable = [
-    //     "name",
-    //     "description",
-    //     "file_path",
-    //     "type",
-    // ];
 }
