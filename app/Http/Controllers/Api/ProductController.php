@@ -48,4 +48,18 @@ class ProductController extends Controller
             ]
         );
     }
+
+    public function show(Product $product)
+    {
+        return response()->json([
+            "status" => 200,
+            "success" => true,
+            "data" => [
+                "name" => $product->name,
+                "type" => $product->type,
+                "description" => $product->description,
+                "file_path" => $product->file_path,
+            ]
+        ]);
+    }
 }
